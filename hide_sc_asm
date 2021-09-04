@@ -1,0 +1,16 @@
+setcompatiblemode 0x0F;
+gofiletop;
+insert "db 0x";
+right 2;
+while( code != eof ){    //ファイルの終わりまで以下の処理実行します
+  if( code != 0x0D ){
+    insert ", 0x";
+    right 2;
+  }
+  else{
+	  down 1;
+    golinetop;	// 行頭に移動する
+	  insert "db 0x";
+	  right 2;
+  }
+}
